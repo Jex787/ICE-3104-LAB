@@ -1,39 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Table Example</title>
+    <title>Display String in a Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Displaying Strings and Values in a Table</h2>
 
     <?php
-    $name = "John Doe";
-    $age = 25;
-    $city = "New York";
+    // Define the data
+    $title = "Product List";
+    $products = [
+        ["Product Name" => "Apple", "Price" => 1.5, "Quantity" => 10],
+        ["Product Name" => "Banana", "Price" => 0.5, "Quantity" => 20],
+        ["Product Name" => "Orange", "Price" => 1.0, "Quantity" => 15],
+    ];
 
-    echo "<table border ='1'>
-            <tr>
-                <th>Label</th>
-                <th>Value</th>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>" . $name . "</td>
-            </tr>
-            <tr>
-                <td>Age</td>
-                <td>" . $age . "</td>
-            </tr>
-            <tr>
-                <td>City</td>
-                <td>" . $city . "</td>
-            </tr>
-          </table>";
+    // Display the title
+    echo "<h2>$title</h2>";
+
+    // Start the table
+    echo "<table>";
+    echo "<tr><th>Product Name</th><th>Price</th><th>Quantity</th></tr>";
+
+    // Loop through the data and create table rows
+    foreach ($products as $product) {
+        echo "<tr>";
+        echo "<td>" . $product['Product Name'] . "</td>";
+        echo "<td>" . $product['Price'] . "</td>";
+        echo "<td>" . $product['Quantity'] . "</td>";
+        echo "</tr>";
+    }
+
+    // End the table
+    echo "</table>";
     ?>
+
 </body>
 
 </html>
