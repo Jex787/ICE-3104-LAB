@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersecting Rectangles with Alpha Transparency</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            border: 2px solid #007a33;
+            /* Border for better visibility */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Draw the first rectangle (opaque)
+        ctx.fillStyle = 'rgba(0, 150, 255, 1)'; // Opaque blue
+        ctx.fillRect(50, 50, 200, 150); // x, y, width, height
+
+        // Draw the second rectangle (transparent)
+        ctx.fillStyle = 'rgba(255, 0, 0, 0.5)'; // Semi-transparent red
+        ctx.fillRect(150, 100, 200, 150); // x, y, width, height
+    </script>
+</body>
+
+</html>

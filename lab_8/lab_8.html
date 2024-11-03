@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Flag</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .flag {
+            width: 300px;
+            height: 200px;
+            background-color: #007a33;
+            /* Green color */
+            position: relative;
+            border: 2px solid #000;
+            /* Optional border for better visibility */
+        }
+
+        .circle {
+            width: 80px;
+            /* Diameter of the red circle */
+            height: 80px;
+            /* Diameter of the red circle */
+            background-color: #ff0000;
+            /* Red color */
+            border-radius: 50%;
+            /* Make it a circle */
+            position: absolute;
+            top: 50%;
+            /* Center vertically */
+            left: 50%;
+            /* Center horizontally */
+            transform: translate(-50%, -50%);
+            /* Adjust for center alignment */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flag">
+        <div class="circle"></div>
+    </div>
+</body>
+
+</html>
