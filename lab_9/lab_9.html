@@ -39,20 +39,33 @@
             const date = new Date();
             const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             const dayName = days[date.getDay()];
-            let hours = date.getHours();
-            const minutes = date.getMinutes();
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12; // Convert to 12-hour format
-            hours = hours ? hours : 12; // The hour '0' should be '12'
-            const formattedTime = `${hours < 10 ? '0' : ''}${hours} ${ampm}; ${minutes < 10 ? '0' : ''}${minutes}`;
 
-            const output = `Today is ${dayName}.<br>The current time is: ${formattedTime}`;
+            // 24-hour format
+            let hours24 = date.getHours();
+            let minutes = date.getMinutes();
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+            const formattedTime24 = hours24 + ":" + minutes;
+
+            // 12-hour format
+            let hours12 = hours24 % 12 || 12;
+            let ampm;
+            if (hours24 >= 12) {
+                ampm = 'PM';
+            } else {
+                ampm = 'AM';
+            }
+            const formattedTime12 = hours12 + ":" + minutes + " " + ampm;
+
+            // Display both formats
+            const output = "Today is " + dayName + ".<br>The current time is:<br>24-hour format: " + formattedTime24 + "<br>12-hour format: " + formattedTime12;
             document.getElementById("timeDisplay").innerHTML = output;
         }
 
-        // Call the function to display the date and time
         displayDateTime();
     </script>
+
 </body>
 
 </html>
